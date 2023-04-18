@@ -1,0 +1,25 @@
+{
+  "header": "yello",
+  "body": "Hi I’m Yello!\n\nI’m a Thai/French artist born and raised in Thailand, currently based in Paris for my studies as a 3rd year in art and comics.",
+  "propic": "/img/uploads/profile.jpg",
+  "socials": [
+    {
+      "class": "instagram",
+      "url": "https://www.instagram.com/y3ll_0"
+    },
+    {
+      "url": "https://twitter.com/oii_yello",
+      "class": "twitter"
+    }
+  ],
+  "sections": [
+    {
+      "header": "experience",
+      "body": "* colourist for “Doggybags 17, Birds of a Leather” Florent Maudoux & Allanva, Label 619 (2021)"
+    },
+    {
+      "header": "software",
+      "body": "* Clip Studio Paint\n* Adobe Photoshop"
+    }
+  ]
+}
