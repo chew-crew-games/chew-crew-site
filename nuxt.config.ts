@@ -3,7 +3,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "yello's portfolio",
+      title: "chew crew",
       link: [
         {
           rel: "preconnect",

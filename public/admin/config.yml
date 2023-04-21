@@ -6,16 +6,63 @@ media_folder: public/img/uploads
 public_folder: /img/uploads
 
 collections:
-  - name: "text"
-    label: "Text"
+  - name: "siteconfig"
+    label: "Site Config"
     delete: false
     editor:
       preview: false
     files:
+      - name: "navbar"
+        label: "Navbar"
+        file: "content/metadata/config/navbar.json"
+        fields:
+          - name: "logo"
+            label: "Brand logo"
+            hint: "The logo that appears in the left-most side of the navbar"
+            widget: image
+          - name: "links"
+            label: "Links"
+            widget: list
+            fields:
+              - name: "text"
+                label: "Link text"
+                hint: "The text you want displayed for the link"
+                widget: string
+              - name: "url"
+                label: "URL"
+                widget: string
+      - name: "footer"
+        label: "Footer"
+        file: "content/metadata/config/footer.json"
+        fields:
+          - name: "logo"
+            label: "Brand logo"
+            hint: "The logo that appears in the left-most side of the navbar"
+            widget: image
+          - name: "links"
+            label: "Links"
+            widget: list
+            fields:
+              - name: "text"
+                label: "Link text"
+                hint: "The text you want displayed for the link"
+                widget: string
+              - name: "url"
+                label: "URL"
+                widget: string
+  - name: "staticpages"
+    label: "Static Pages"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "home"
+        label: "Home"
+        file: "content/metadata/pages/home.json"
       - name: "about"
         label: "About Page"
         file: "content/metadata/about.json"
-        fields: 
+        fields:
           - name: "header"
             label: "Header"
             hint: "The big text above the body text."
@@ -32,14 +79,13 @@ collections:
             label: "Social Links"
             widget: list
             fields:
-                - name: "class"
-                  label: "MDI Icon Name"
-                  hint: "Name of the Material Design Icon you want to appear as the link icon. Visit https://materialdesignicons.com to find icons. For example, the name you would enter for this icon would be 'currency-thb': (https://materialdesignicons.com/icon/currency-thb)."
-                - name: "url"
-                  label: "URL"
-                  widget: string
-                  hint: "URL of the social media page."
-                
+              - name: "class"
+                label: "MDI Icon Name"
+                hint: "Name of the Material Design Icon you want to appear as the link icon. Visit https://materialdesignicons.com to find icons. For example, the name you would enter for this icon would be 'currency-thb': (https://materialdesignicons.com/icon/currency-thb)."
+              - name: "url"
+                label: "URL"
+                widget: string
+                hint: "URL of the social media page."
           - label: "Other Sections"
             name: "sections"
             hint: "Additional header/body sections that will appear in the about page."
@@ -54,16 +100,15 @@ collections:
                 name: "body"
                 widget: "markdown"
                 hint: "Body text that appears under the big text."
-              
   - name: "images"
     label: "Images"
     delete: false
     editor:
       preview: false
     files:
-      - name: "illustrations"
-        label: "Illustrations"
-        file: "content/metadata/illustrations.json"
+      - name: "images"
+        label: "Images"
+        file: "content/metadata/images.json"
         fields:
           - name: "illustrations"
             label: "Illustrations"

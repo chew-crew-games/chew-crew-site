@@ -3,25 +3,24 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "resize-uploads": "sharp resize 400 400 -i public/img/uploads/* -o public/img/thumbs/{name}{ext}",
-    "generate": "npm run resize-uploads && nuxt generate",
+    "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
-    "@vueuse/nuxt": "^9.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vueuse/core": "^10.0.2",
+    "@vueuse/nuxt": "^10.0.2",
     "bulma": "^0.9.4",
-    "eslint": "^8.29.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-vue": "^9.8.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-vue": "^9.11.0",
     "micromark": "^3.1.0",
-    "nuxt": "3.0.0",
-    "prettier": "^2.8.1",
-    "sass": "^1.56.2",
-    "sharp-cli": "^4.1.0",
-    "typescript": "^4.9.4"
+    "nuxt": "3.4.1",
+    "prettier": "^2.8.7",
+    "sass": "^1.62.0",
+    "typescript": "^5.0.4"
   },
   "prettier": {
     "printWidth": 80,
@@ -88,8 +87,5 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ],
-  "dependencies": {
-    "@vueuse/core": "^9.11.1"
-  }
+  ]
 }

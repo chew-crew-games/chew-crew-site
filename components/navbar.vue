@@ -7,7 +7,7 @@
             class="has-text-weight-bold is-size-5 has-text-warning"
             to="/"
           >
-            yello
+            chew crew
           </nuxt-link>
         </div>
         <a class="navbar-burger burger" @click="toggleNavbar()">
@@ -57,7 +57,7 @@
           </div>
           <div class="navbar-item has-button">
             <a
-              href="mailto:oi.yello3@gmail.com?subject=Hello!&body=I'm%20here%20from%20your%20website!"
+              href="mailto:hello@chewcrew.games?subject=Hello!&body=I'm%20here%20from%20your%20website!"
               class="button is-lowercase has-text-weight-bold"
               target="_blank"
             >
