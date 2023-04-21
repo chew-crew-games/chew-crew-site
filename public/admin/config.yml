@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
+local_backend: true
+
 media_folder: public/img/uploads
 public_folder: /img/uploads
 
@@ -37,8 +39,12 @@ collections:
         fields:
           - name: "logo"
             label: "Brand logo"
-            hint: "The logo that appears in the left-most side of the navbar"
+            hint: "The logo that appears in the middle of the footer"
             widget: image
+          - name: "footertext"
+            label: "Footer description"
+            hint: "The text that appears below the footer text. Optional."
+            widget: string
           - name: "links"
             label: "Links"
             widget: list
@@ -50,6 +56,9 @@ collections:
               - name: "url"
                 label: "URL"
                 widget: string
+              - name: "class"
+                label: "MDI Icon Name"
+                hint: "Name of the Material Design Icon you want to appear as the link icon. Visit https://materialdesignicons.com to find icons. For example, the name you would enter for this icon would be 'currency-thb': (https://materialdesignicons.com/icon/currency-thb)."
   - name: "staticpages"
     label: "Static Pages"
     delete: false
@@ -59,6 +68,11 @@ collections:
       - name: "home"
         label: "Home"
         file: "content/metadata/pages/home.json"
+        fields:
+          - name: "header"
+            label: "Header"
+            hint: "The big text."
+            widget: string
       - name: "about"
         label: "About Page"
         file: "content/metadata/about.json"
@@ -67,121 +81,3 @@ collections:
             label: "Header"
             hint: "The big text above the body text."
             widget: string
-          - label: "Body text"
-            name: "body"
-            widget: "markdown"
-            hint: "Body text that appears under the big text."
-          - name: "propic"
-            label: "Profile picture"
-            hint: "The profile picture that shows on the about page."
-            widget: image
-          - name: "socials"
-            label: "Social Links"
-            widget: list
-            fields:
-              - name: "class"
-                label: "MDI Icon Name"
-                hint: "Name of the Material Design Icon you want to appear as the link icon. Visit https://materialdesignicons.com to find icons. For example, the name you would enter for this icon would be 'currency-thb': (https://materialdesignicons.com/icon/currency-thb)."
-              - name: "url"
-                label: "URL"
-                widget: string
-                hint: "URL of the social media page."
-          - label: "Other Sections"
-            name: "sections"
-            hint: "Additional header/body sections that will appear in the about page."
-            label_singular: "section"
-            widget: "list"
-            fields:
-              - name: "header"
-                label: "Header"
-                hint: "The big text above the body text."
-                widget: string
-              - label: "Body text"
-                name: "body"
-                widget: "markdown"
-                hint: "Body text that appears under the big text."
-  - name: "images"
-    label: "Images"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "images"
-        label: "Images"
-        file: "content/metadata/images.json"
-        fields:
-          - name: "illustrations"
-            label: "Illustrations"
-            label_singular: "Illustration"
-            widget: list
-            add_to_top: true
-            fields:
-              - label: "Image"
-                name: "image"
-                widget: "image"
-              - label: "Description"
-                name: "description"
-                widget: "string"
-                required: false
-                hint: "Description of the image that shows at the bottom when you click an image. Optional."
-              - label: "Upload Date"
-                name: "date"
-                widget: "datetime"
-                hint: "Do not touch! Use the default date."
-      - name: "comics"
-        label: "Comics"
-        file: "content/metadata/comics.json"
-        fields:
-          - name: "comics"
-            label: "comics"
-            widget: list
-            add_to_top: true
-            fields:
-              - label: "Title"
-                name: "title"
-                widget: "string"
-                hint: "Title of the comic. Not used in website, just for organization."
-              - label: "Upload Date"
-                name: "date"
-                widget: "datetime"
-                hint: "Do not touch! Use the default date."
-              - label: "Comic Thumbnail"
-                name: "thumbnail"
-                widget: "image"
-                required: false
-                hint: "Thumbnail to represent the whole comic. Recommended square aspect ratio, dimensions 400px by 400px. Optional. If not provided, will default to first page of comic."
-              - name: "comicpages"
-                label: "Comic Pages"
-                widget: list
-                fields:
-                  - label: "Image"
-                    name: "image"
-                    widget: "image"
-                  - label: "Description"
-                    name: "description"
-                    widget: "string"
-                    required: false
-                    hint: "Description of this single page that appears at the bottom. Optional."
-      - name: "sketches"
-        label: "Sketches"
-        file: "content/metadata/sketches.json"
-        fields:
-          - name: "sketches"
-            label: "Sketches"
-            label_singular: "Sketch"
-            widget: list
-            add_to_top: true
-            fields:
-              - label: "Image"
-                name: "image"
-                widget: "image"
-                allow_multiple: true
-              - label: "Description"
-                name: "description"
-                widget: "string"
-                required: false
-                hint: "Description of the image that shows at the bottom when you click an image. Optional."
-              - label: "Upload Date"
-                name: "date"
-                widget: "datetime"
-                hint: "Do not touch! Use the default date."

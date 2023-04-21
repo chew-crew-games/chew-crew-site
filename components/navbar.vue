@@ -27,42 +27,8 @@
               class="navbar-link is-lowercase has-text-weight-bold"
               to="/"
             >
-              Art
+              Test
             </nuxt-link>
-            <div class="navbar-dropdown">
-              <nuxt-link
-                class="navbar-item is-lowercase has-text-weight-bold"
-                to="/#illustration"
-              >
-                Illustration
-              </nuxt-link>
-              <nuxt-link
-                class="navbar-item is-lowercase has-text-weight-bold"
-                to="/#comics"
-              >
-                Comics
-              </nuxt-link>
-              <nuxt-link
-                class="navbar-item is-lowercase has-text-weight-bold"
-                to="/#sketches"
-              >
-                Sketches
-              </nuxt-link>
-            </div>
-          </div>
-          <div class="navbar-item">
-            <nuxt-link to="/about" class="is-lowercase has-text-weight-bold">
-              about
-            </nuxt-link>
-          </div>
-          <div class="navbar-item has-button">
-            <a
-              href="mailto:hello@chewcrew.games?subject=Hello!&body=I'm%20here%20from%20your%20website!"
-              class="button is-lowercase has-text-weight-bold"
-              target="_blank"
-            >
-              Contact
-            </a>
           </div>
         </div>
       </div>
@@ -103,67 +69,5 @@ onUnmounted(() => {
   transition: 0.5s;
 
   height: 3em;
-  @include from($tablet) {
-    .navbar-item > a {
-      color: $primary;
-    }
-    border-bottom: 1px solid lightgray;
-    .navbar-item:not(.has-button) {
-      &:hover,
-      &:focus,
-      &:active,
-      &:focus-within {
-        background-color: $white-ter;
-        border-bottom: 1px solid lightgray;
-        .navbar-link {
-          background-color: $white-ter;
-        }
-      }
-    }
-    .navbar-dropdown .navbar-item {
-      &:hover,
-      &:focus,
-      &:active,
-      &:focus-within {
-        border-bottom: none;
-      }
-    }
-    &.is-top {
-      background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 0.1) 50%,
-        rgba(0, 0, 0, 0.5) 100%
-      );
-      height: 5em;
-      border-bottom: none;
-      .navbar-item {
-        background-color: rgba(0, 0, 0, 0);
-        > a {
-          color: $white;
-        }
-      }
-      .navbar-item:not(.has-button) {
-        &:hover,
-        &:focus,
-        &:active,
-        &:focus-within {
-          background-color: rgba(0, 0, 0, 0.3);
-          border-bottom: none;
-          .navbar-link {
-            background-color: rgba(0, 0, 0, 0.3);
-          }
-        }
-      }
-
-      .navbar-item .button {
-        background-color: rgba(0, 0, 0, 0);
-        &:hover {
-          color: $primary;
-          background-color: $white;
-        }
-      }
-    }
-  }
 }
 </style>

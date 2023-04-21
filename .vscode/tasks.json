@@ -19,14 +19,13 @@
     },
     {
       "label": "npm: dev",
-      "detail": "vite dev",
-      "type": "npm",
-      "script": "dev",
+      "detail": "vite dev && netlify-cms-proxy-server",
+      "dependsOn": ["npm: dev - client", "npm: dev - netlify-cms"],
+      "dependsOrder": "parallel",
       "group": {
         "kind": "build",
         "isDefault": true
-      },
-      "problemMatcher": "$tsc"
+      }
     },
     {
       "type": "npm",
@@ -35,6 +34,38 @@
       "label": "npm: serve",
       "detail": "vite preview",
       "isBackground": true
+    },
+    {
+      "label": "npm: dev - client",
+      "detail": "vite dev",
+      "type": "npm",
+      "script": "dev",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": false,
+        "group": "dev"
+      },
+      "problemMatcher": "$tsc-watch"
+    },
+    {
+      "label": "npm: dev - netlify-cms",
+      "detail": "netlify-cms-proxy-server",
+      "type": "npm",
+      "script": "netlify-cms-server",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": false,
+        "group": "dev"
+      },
+      "problemMatcher": "$tsc-watch"
     }
   ]
 }

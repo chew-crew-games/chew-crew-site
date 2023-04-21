@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import about from "../content/metadata/about.json";
+// import about from "../content/metadata/about.json";
 </script>
 <template>
   <footer class="footer has-text-centered">
@@ -8,7 +8,7 @@ import about from "../content/metadata/about.json";
     >
       <p class="has-text-weight-bold is-size-5 mb-1 is-lowercase">yello</p>
       <div>
-        <a
+        <!-- <a
           v-for="social of about.socials"
           :key="social.class"
           class="icon is-small mx-2 has-text-primary"
@@ -16,7 +16,7 @@ import about from "../content/metadata/about.json";
           href="https://ko-fi.com/yellobeans"
         >
           <i class="mdi" :class="`mdi-${social.class}`" />
-        </a>
+        </a> -->
       </div>
     </div>
   </footer>

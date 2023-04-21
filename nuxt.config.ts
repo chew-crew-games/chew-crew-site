@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { resolve } from "path";
 
 export default defineNuxtConfig({
   app: {
@@ -23,7 +24,7 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
-  modules: ["@vueuse/nuxt"],
+  modules: ["@nuxt/content", "@vueuse/nuxt"],
   nitro: {
     preset: "netlify",
   },
@@ -32,6 +33,11 @@ export default defineNuxtConfig({
     strict: true,
   },
   vite: {
+    resolve: {
+      alias: {
+        "@assets": resolve(__dirname, "assets"),
+      },
+    },
     css: {
       preprocessorOptions: {
         scss: {
