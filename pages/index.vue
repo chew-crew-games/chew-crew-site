@@ -19,20 +19,3 @@
 
 // useParallax();
 </script>
-
-<style lang="scss" scoped>
-hr {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.hero {
-  // background-image: url("/img/heroes/home-hero.jpg");
-}
-.section {
-  @include from($tablet) {
-    .container {
-      max-width: 1000px !important;
-    }
-  }
-}
-</style>

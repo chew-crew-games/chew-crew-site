@@ -1,15 +1,10 @@
 <template>
-  <nav class="navbar is-fixed-top" :class="{ 'is-top': isTop }">
+  <nav class="navbar is-fixed-top is-primary" :class="{ 'is-top': isTop }">
     <div class="container">
       <div class="navbar-brand">
-        <div id="logo" class="navbar-item" @click="toggleNavbar(false)">
-          <nuxt-link
-            class="has-text-weight-bold is-size-5 has-text-warning"
-            to="/"
-          >
-            chew crew
-          </nuxt-link>
-        </div>
+        <nuxt-link to="/" class="navbar-item" @click="toggleNavbar(false)">
+          <img :src="navbarMetadata.logo" />
+        </nuxt-link>
         <a class="navbar-burger burger" @click="toggleNavbar()">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -22,14 +17,16 @@
         @click="toggleNavbar(false)"
       >
         <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <nuxt-link
-              class="navbar-link is-lowercase has-text-weight-bold"
-              to="/"
-            >
-              Test
+          <template v-for="link in navbarMetadata.links" :key="link.text">
+            <nuxt-link class="navbar-item has-text-weight-bold" :to="link.url">
+              <span class="text">
+                {{ link.text }}
+              </span>
+              <span v-if="link.url.includes('http')" class="icon">
+                <i class="mdi mdi-open-in-new" />
+              </span>
             </nuxt-link>
-          </div>
+          </template>
         </div>
       </div>
     </div>
@@ -37,27 +34,19 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
+import { ref } from "vue";
+import { NAVBAR_METADATA_PATH, NavbarMetadata } from "../utils/content";
 
 const navbarBurgerToggled = ref(false);
 const isTop = ref(true);
 
-const toggleNavbar = (setValue?: boolean) => {
-  navbarBurgerToggled.value = setValue ?? !navbarBurgerToggled.value;
-};
-const onScroll = () => {
-  isTop.value = window.pageYOffset < 5;
-};
+function toggleNavbar(overrideValue?: boolean) {
+  navbarBurgerToggled.value = overrideValue ?? !navbarBurgerToggled.value;
+}
 
-onMounted(() => {
-  document.addEventListener("scroll", onScroll, {
-    passive: true,
-  });
-});
-
-onUnmounted(() => {
-  document.removeEventListener("scroll", onScroll);
-});
+const navbarMetadata = await queryContent<NavbarMetadata>(
+  NAVBAR_METADATA_PATH
+).findOne();
 </script>
 
 <style lang="scss" scoped>

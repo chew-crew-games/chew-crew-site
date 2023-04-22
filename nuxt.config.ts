@@ -33,6 +33,9 @@ export default defineNuxtConfig({
     strict: true,
   },
   vite: {
+    server: {
+      strictPort: true,
+    },
     resolve: {
       alias: {
         "@assets": resolve(__dirname, "assets"),

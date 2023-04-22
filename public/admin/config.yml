@@ -4,8 +4,8 @@ backend:
 
 local_backend: true
 
-media_folder: public/img/uploads
-public_folder: /img/uploads
+media_folder: public/img/config
+public_folder: /img/config
 
 collections:
   - name: "siteconfig"
@@ -39,8 +39,14 @@ collections:
         fields:
           - name: "logo"
             label: "Brand logo"
-            hint: "The logo that appears in the middle of the footer"
+            hint: "The logo that appears in the middle of the footer. Falls back to brand text if populated."
             widget: image
+            required: false
+          - name: "brandtext"
+            label: "Brand text"
+            hint: "The brand text that appears in the middle of the footer. Defaults to brand logo if populated."
+            widget: image
+            required: false
           - name: "footertext"
             label: "Footer description"
             hint: "The text that appears below the footer text. Optional."
