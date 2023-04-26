@@ -15,7 +15,7 @@
           target="_blank"
           href="https://ko-fi.com/yellobeans"
         >
-          <i class="mdi" :class="`mdi-${social.class}`" />
+          <i class="bxs" :class="`bxs-${social.class}`" />
         </a> -->
       </div>
     </div>

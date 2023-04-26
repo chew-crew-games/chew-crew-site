@@ -23,7 +23,7 @@
                 {{ link.text }}
               </span>
               <span v-if="link.url.includes('http')" class="icon">
-                <i class="mdi mdi-open-in-new" />
+                <i class="bxs bxs-open-in-new" />
               </span>
             </nuxt-link>
           </template>

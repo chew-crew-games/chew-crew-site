@@ -39,13 +39,13 @@ collections:
         fields:
           - name: "logo"
             label: "Brand logo"
-            hint: "The logo that appears in the middle of the footer. Falls back to brand text if populated."
+            hint: "The logo that appears in the middle of the footer. Falls back to brand text if not populated."
             widget: image
             required: false
-          - name: "brandtext"
-            label: "Brand text"
-            hint: "The brand text that appears in the middle of the footer. Defaults to brand logo if populated."
-            widget: image
+          - name: "brandname"
+            label: "Brand name"
+            hint: "The brand name that appears in the middle of the footer. Defaults to brand logo if populated."
+            widget: string
             required: false
           - name: "footertext"
             label: "Footer description"
@@ -55,16 +55,18 @@ collections:
             label: "Links"
             widget: list
             fields:
+              - name: "boxicon"
+                label: "Boxicons name"
+                hint: "Name of the Boxicons icon you want to appear as the link icon. Visit https://boxicons.com to find icons. For example, the name you would enter for [this icon](https://boxicons.com/?query=cable+car) would be 'cable-car': . Falls back to link text if populated."
+                required: false
               - name: "text"
                 label: "Link text"
-                hint: "The text you want displayed for the link"
+                hint: "The text you want displayed for the link. Defaults to Boxicons name if populated."
                 widget: string
               - name: "url"
                 label: "URL"
                 widget: string
-              - name: "class"
-                label: "MDI Icon Name"
-                hint: "Name of the Material Design Icon you want to appear as the link icon. Visit https://materialdesignicons.com to find icons. For example, the name you would enter for this icon would be 'currency-thb': (https://materialdesignicons.com/icon/currency-thb)."
+             
   - name: "staticpages"
     label: "Static Pages"
     delete: false

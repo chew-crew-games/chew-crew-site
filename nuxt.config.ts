@@ -13,7 +13,7 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css",
+          href: "https://unpkg.com/boxicons/css/boxicons.min.css",
         },
       ],
       script: [
