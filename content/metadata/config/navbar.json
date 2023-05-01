@@ -3,7 +3,13 @@
   "links": [
     {
       "text": "Twitter",
-      "url": "https://twitter.com/chew_crew_games"
+      "url": "https://twitter.com/chew_crew_games",
+      "boxicon": "twitter"
+    },
+    {
+      "text": "Discord community",
+      "boxicon": "discord-alt",
+      "url": "https://discord.gg/2UYWRAGqhu"
     }
   ]
 }

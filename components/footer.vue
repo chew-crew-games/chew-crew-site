@@ -1,22 +1,36 @@
 <script setup lang="ts">
-// import about from "../content/metadata/about.json";
+import { FooterMetadata } from "../utils/content";
+
+const { data: footerMetadata } = await useAsyncData(() =>
+  queryContent<FooterMetadata>(FOOTER_METADATA_PATH).findOne()
+);
 </script>
 <template>
-  <footer class="footer has-text-centered">
+  <footer
+    class="footer has-background-primary has-text-centered has-text-white"
+  >
     <div
       class="content is-flex is-justify-content-center is-flex-direction-column"
     >
-      <p class="has-text-weight-bold is-size-5 mb-1 is-lowercase">yello</p>
-      <div>
-        <!-- <a
-          v-for="social of about.socials"
-          :key="social.class"
-          class="icon is-small mx-2 has-text-primary"
+      <figure v-if="footerMetadata?.logo" class="image is-64x64">
+        <img :src="footerMetadata?.logo" />
+      </figure>
+      <p
+        v-if="footerMetadata?.brandname"
+        class="has-text-weight-bold is-size-5 mb-1 is-lowercase"
+      >
+        {{ footerMetadata?.brandname }}
+      </p>
+      <div class="my-3">
+        <a
+          v-for="link of footerMetadata?.links"
+          :key="link.url"
+          class="icon is-medium mx-2 has-text-white"
           target="_blank"
-          href="https://ko-fi.com/yellobeans"
+          :href="link.url"
         >
-          <i class="bxs" :class="`bxs-${social.class}`" />
-        </a> -->
+          <i :class="`bx bxl-${link.boxicon} bx-sm`" />
+        </a>
       </div>
     </div>
   </footer>

@@ -30,6 +30,10 @@ collections:
                 label: "Link text"
                 hint: "The text you want displayed for the link"
                 widget: string
+              - name: "boxicon"
+                label: "Boxicons name"
+                hint: "Name of the Boxicons icon you want to appear as the link icon. Visit https://boxicons.com to find icons. For example, the name you would enter for [this icon](https://boxicons.com/?query=cable+car) would be 'cable-car'. Optional."
+                required: false
               - name: "url"
                 label: "URL"
                 widget: string
@@ -51,22 +55,23 @@ collections:
             label: "Footer description"
             hint: "The text that appears below the footer text. Optional."
             widget: string
+            required: false
           - name: "links"
             label: "Links"
             widget: list
             fields:
               - name: "boxicon"
                 label: "Boxicons name"
-                hint: "Name of the Boxicons icon you want to appear as the link icon. Visit https://boxicons.com to find icons. For example, the name you would enter for [this icon](https://boxicons.com/?query=cable+car) would be 'cable-car': . Falls back to link text if populated."
+                hint: "Name of the Boxicons icon you want to appear as the link icon. Visit https://boxicons.com to find icons. For example, the name you would enter for [this icon](https://boxicons.com/?query=cable+car) would be 'cable-car'. Falls back to link text if populated."
                 required: false
               - name: "text"
                 label: "Link text"
                 hint: "The text you want displayed for the link. Defaults to Boxicons name if populated."
+                required: false
                 widget: string
               - name: "url"
                 label: "URL"
                 widget: string
-             
   - name: "staticpages"
     label: "Static Pages"
     delete: false
@@ -77,15 +82,36 @@ collections:
         label: "Home"
         file: "content/metadata/pages/home.json"
         fields:
-          - name: "header"
-            label: "Header"
-            hint: "The big text."
+          - name: "heroimg"
+            label: "Hero image"
+            hint: "The background image behind the big section."
+            widget: image
+          - name: "pretitle"
+            label: "The smaller text above the big text. Optional."
             widget: string
-      - name: "about"
-        label: "About Page"
-        file: "content/metadata/about.json"
-        fields:
-          - name: "header"
-            label: "Header"
-            hint: "The big text above the body text."
+            required: false
+          - name: "title"
+            label: "Title"
+            hint: "The big text above everything."
             widget: string
+          - name: "sectionheader"
+            label: "Section header"
+            hint: "The big text in the section below the title."
+            widget: string
+          - name: "sectiondesc"
+            label: "Section description"
+            hint: "The description text in the section below the title. Optional."
+            widget: text
+            required: false
+          - name: "sectionembed"
+            label: "Section embed"
+            hint: "The code for the media embed that will appear to the left of the section below the title. Optional."
+            required: false
+            widget: code
+            output_code_only: true
+            default_language: html
+          - name: "ctaheader"
+            label: "Call-to-action header"
+            hint: "The big text above the call-to-action. Optional."
+            widget: string
+            required: false
