@@ -9,9 +9,9 @@ function toggleNavbar(overrideValue?: boolean) {
   navbarBurgerToggled.value = overrideValue ?? !navbarBurgerToggled.value;
 }
 
-const { data: navbarMetadata } = await useAsyncData(() =>
-  queryContent<NavbarMetadata>(NAVBAR_METADATA_PATH).findOne()
-);
+const navbarMetadata = await queryContent<NavbarMetadata>(
+  NAVBAR_METADATA_PATH
+).findOne();
 
 function onScroll() {
   isTop.value = window.pageYOffset < 5;
@@ -81,8 +81,13 @@ onUnmounted(() => {
   transition: 0.5s;
 
   height: 3em;
-  .navbar-item > a {
-    color: $primary;
+  .navbar-item {
+    > a {
+      color: $primary;
+    }
+    img {
+      max-height: 2rem;
+    }
   }
   .navbar-item {
     &:hover,

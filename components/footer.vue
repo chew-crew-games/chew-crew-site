@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { FooterMetadata } from "../utils/content";
 
-const { data: footerMetadata } = await useAsyncData(() =>
-  queryContent<FooterMetadata>(FOOTER_METADATA_PATH).findOne()
-);
+const footerMetadata = await queryContent<FooterMetadata>(
+  FOOTER_METADATA_PATH
+).findOne();
 </script>
 <template>
   <footer
@@ -17,7 +17,7 @@ const { data: footerMetadata } = await useAsyncData(() =>
       </figure>
       <p
         v-if="footerMetadata?.brandname"
-        class="has-text-weight-bold is-size-5 mb-1 is-lowercase"
+        class="has-text-weight-bold is-size-5 mb-1 is-lowercase is-family-primary"
       >
         {{ footerMetadata?.brandname }}
       </p>

@@ -33,4 +33,10 @@ export interface HomePageMetadata extends ParsedContent {
   sectiondesc?: string;
   sectionembed?: string;
   ctaheader?: string;
+  ctabuttons: {
+    text: string;
+    boxicon?: string;
+    url: string;
+  }[];
+  ctaafter?: string;
 }

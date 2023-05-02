@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
-local_backend: true
+# local_backend: true
 
 media_folder: public/img/config
 public_folder: /img/config
@@ -113,5 +113,25 @@ collections:
           - name: "ctaheader"
             label: "Call-to-action header"
             hint: "The big text above the call-to-action. Optional."
+            widget: string
+            required: false
+          - name: "ctabuttons"
+            label: "Call-to-action buttons"
+            widget: list
+            fields:
+              - name: "text"
+                label: "Link text"
+                hint: "The text you want displayed for the link"
+                widget: string
+              - name: "boxicon"
+                label: "Boxicons name"
+                hint: "Name of the Boxicons icon you want to appear as the link icon. Visit https://boxicons.com to find icons. For example, the name you would enter for [this icon](https://boxicons.com/?query=cable+car) would be 'cable-car'. Optional."
+                required: false
+              - name: "url"
+                label: "URL"
+                widget: string
+          - name: "ctaafter"
+            label: "Call-to-action after-text"
+            hint: "Text that comes after call-to-action buttons. Optional."
             widget: string
             required: false

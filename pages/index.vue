@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { HOME_METADATA_PATH, HomePageMetadata } from "../utils/content";
 
-const { data: homePageMetadata } = await useAsyncData(() =>
-  queryContent<HomePageMetadata>(HOME_METADATA_PATH).findOne()
-);
+const homePageMetadata = await queryContent<HomePageMetadata>(
+  HOME_METADATA_PATH
+).findOne();
 </script>
 
 <template>
@@ -24,22 +24,47 @@ const { data: homePageMetadata } = await useAsyncData(() =>
           </h1>
         </div>
         <div class="container">
-          <div class="columns">
+          <div class="columns my-4">
             <div class="column is-three-fifths">
-              <span v-html="homePageMetadata?.sectionembed" />
+              <div class="media" v-html="homePageMetadata?.sectionembed" />
             </div>
-            <div class="column is-two-fifths has-text-left">
-              <div class="block">
+            <div class="column is-two-fifths">
+              <div class="block mx-5">
                 <h2
-                  class="title is-3 is-size-4-mobile has-text-white is-family-secondary has-text-weight-normal"
+                  class="title is-3 is-size-4-mobile has-text-white is-family-secondary has-text-weight-normal has-text-left"
                 >
                   {{ homePageMetadata?.sectionheader }}
                 </h2>
-                <p class="mt-4 is-size-5 is-size-6-mobile has-text-white">
+                <p
+                  class="mt-4 has-text-justified has-text-left-mobile is-size-5 is-size-6-mobile has-text-white"
+                >
                   {{ homePageMetadata?.sectiondesc }}
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="container my-4">
+          <div class="columns my-4">
+            <div
+              class="column"
+              v-for="button in homePageMetadata?.ctabuttons"
+              :key="button.url"
+            >
+              <button class="button is-large is-warning" :href="button.url">
+                <span v-if="button.boxicon" class="icon">
+                  <i :class="`bx bxl-${button.boxicon}`" />
+                </span>
+                <span class="text">
+                  {{ button.text }}
+                </span>
+              </button>
+            </div>
+          </div>
+          <div v-if="homePageMetadata?.ctaafter" class="my-4">
+            <h3 class="is-size-5 has-text-white">
+              {{ homePageMetadata?.ctaafter }}
+            </h3>
           </div>
         </div>
       </div>
@@ -48,6 +73,13 @@ const { data: homePageMetadata } = await useAsyncData(() =>
 </template>
 
 <style lang="scss">
+.media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
 @include from($tablet) {
   .title {
     font-size: 7rem;
