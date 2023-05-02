@@ -26,7 +26,7 @@ const footerMetadata = await queryContent<FooterMetadata>(
           v-for="link of footerMetadata?.links"
           :key="link.url"
           class="icon is-medium mx-2 has-text-white"
-          target="_blank"
+          :target="link.url.includes('http') ? '_blank' : ''"
           :href="link.url"
         >
           <i :class="`bx bxl-${link.boxicon} bx-sm`" />

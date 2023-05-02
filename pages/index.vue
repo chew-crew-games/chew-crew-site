@@ -51,9 +51,10 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
               v-for="button in homePageMetadata?.ctabuttons"
               :key="button.url"
             >
-              <button
+              <a
                 class="button is-large is-warning is-responsive"
                 :href="button.url"
+                :target="button.url.includes('http') ? '_blank' : ''"
               >
                 <span v-if="button.boxicon" class="icon">
                   <i :class="`bx bxl-${button.boxicon}`" />
@@ -61,7 +62,13 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
                 <span class="text">
                   {{ button.text }}
                 </span>
-              </button>
+                <span
+                  v-if="button.url.includes('http') && !button.boxicon"
+                  class="icon"
+                >
+                  <i class="bx bx-link-external" />
+                </span>
+              </a>
             </div>
           </div>
           <div v-if="homePageMetadata?.ctaafter" class="my-4">

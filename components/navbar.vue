@@ -51,7 +51,11 @@ onUnmounted(() => {
       >
         <div class="navbar-end">
           <template v-for="link in navbarMetadata?.links" :key="link.text">
-            <nuxt-link class="navbar-item has-text-weight-bold" :to="link.url">
+            <nuxt-link
+              class="navbar-item has-text-weight-bold"
+              :to="link.url"
+              :target="link.url.includes('http') ? '_blank' : ''"
+            >
               <span v-if="link.boxicon" class="icon">
                 <i :class="`bx bxl-${link.boxicon}`" />
               </span>
