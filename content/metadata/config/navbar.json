@@ -7,9 +7,14 @@
       "boxicon": "twitter"
     },
     {
-      "text": "Discord Community",
+      "text": "Discord",
       "boxicon": "discord-alt",
       "url": "https://discord.gg/2UYWRAGqhu"
+    },
+    {
+      "text": "Steam",
+      "boxicon": "steam",
+      "url": "https://partner.steamgames.com"
     }
   ]
 }

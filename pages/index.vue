@@ -18,13 +18,13 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
             {{ homePageMetadata?.pretitle }}
           </h6>
           <h1
-            class="title my-3 is-1-mobile is-lowercase has-text-weight-normal has-text-light is-family-secondary"
+            class="title hero-title my-3 is-1-mobile is-lowercase has-text-weight-normal has-text-light is-family-secondary"
           >
             {{ homePageMetadata?.title }}
           </h1>
         </div>
-        <div class="container">
-          <div class="columns my-4">
+        <div class="container my-6">
+          <div class="columns">
             <div class="column is-three-fifths">
               <div class="media" v-html="homePageMetadata?.sectionembed" />
             </div>
@@ -44,7 +44,7 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
             </div>
           </div>
         </div>
-        <div class="container my-4">
+        <div class="container my-6">
           <div class="columns my-4">
             <div
               class="column"
@@ -81,8 +81,8 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
 }
 
 @include from($tablet) {
-  .title {
-    font-size: 7rem;
+  .hero-title {
+    font-size: 7rem !important;
   }
 }
 </style>
