@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
-# local_backend: true
+local_backend: true
 
 media_folder: public/img/config
 public_folder: /img/config

@@ -13,12 +13,12 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
         <div class="container my-6">
           <h6
             v-if="homePageMetadata?.pretitle"
-            class="subtitle is-5 is-6-mobile is-italic has-text-white is-family-secondary"
+            class="subtitle is-size-5 is-size-6-mobile is-italic has-text-white is-family-secondary"
           >
             {{ homePageMetadata?.pretitle }}
           </h6>
           <h1
-            class="title hero-title my-3 is-1-mobile is-lowercase has-text-weight-normal has-text-light is-family-secondary"
+            class="title hero-title my-3 is-size-1-mobile is-lowercase has-text-weight-normal has-text-light is-family-secondary"
           >
             {{ homePageMetadata?.title }}
           </h1>
@@ -51,7 +51,10 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
               v-for="button in homePageMetadata?.ctabuttons"
               :key="button.url"
             >
-              <button class="button is-large is-warning" :href="button.url">
+              <button
+                class="button is-large is-warning is-responsive"
+                :href="button.url"
+              >
                 <span v-if="button.boxicon" class="icon">
                   <i :class="`bx bxl-${button.boxicon}`" />
                 </span>
@@ -62,7 +65,7 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
             </div>
           </div>
           <div v-if="homePageMetadata?.ctaafter" class="my-4">
-            <h3 class="is-size-5 has-text-white">
+            <h3 class="is-size-5 is-size-6-mobile has-text-white">
               {{ homePageMetadata?.ctaafter }}
             </h3>
           </div>
