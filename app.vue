@@ -16,10 +16,16 @@ const route = useRoute();
 onMounted(() => {
   redirectToAdmin();
 
-  posthog.init(import.meta.env.POSTHOG as string, {
-    api_host: "https://app.posthog.com",
-    autocapture: true,
-  });
+  if (import.meta.env.PROD) {
+    posthog.init(import.meta.env.VITE_POSTHOG as string, {
+      api_host: "https://app.posthog.com",
+      autocapture: true,
+      persistence: "memory",
+      session_recording: {
+        maskAllInputs: true
+      },
+    });
+  }
 });
 
 function redirectToAdmin() {
