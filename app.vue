@@ -7,6 +7,7 @@
 </template>
 
 <script setup lang="ts">
+import posthog from "posthog-js";
 import foot from "./components/footer.vue";
 import navbar from "./components/navbar.vue";
 
@@ -14,6 +15,11 @@ const route = useRoute();
 
 onMounted(() => {
   redirectToAdmin();
+
+  posthog.init(import.meta.env.POSTHOG as string, {
+    api_host: "https://app.posthog.com",
+    autocapture: true,
+  });
 });
 
 function redirectToAdmin() {
