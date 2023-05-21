@@ -22,6 +22,30 @@ const homePageMetadata = await queryContent<HomePageMetadata>(
           >
             {{ homePageMetadata?.title }}
           </h1>
+          <div
+            class="is-hidden-desktop"
+            v-for="button in homePageMetadata?.ctabuttons"
+            :key="button.url"
+          >
+            <a
+              class="button is-large is-warning is-responsive mt-3"
+              :href="button.url"
+              :target="button.url.includes('http') ? '_blank' : ''"
+            >
+              <span v-if="button.boxicon" class="icon">
+                <i :class="`bx bxl-${button.boxicon}`" />
+              </span>
+              <span class="text">
+                {{ button.text }}
+              </span>
+              <span
+                v-if="button.url.includes('http') && !button.boxicon"
+                class="icon"
+              >
+                <i class="bx bx-link-external" />
+              </span>
+            </a>
+          </div>
         </div>
         <div class="container my-6">
           <div class="columns">

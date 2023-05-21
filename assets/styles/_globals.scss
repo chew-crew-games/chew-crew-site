@@ -8,6 +8,11 @@ a {
     transition: 0.5s;
 }
 
+.button {
+    height: 100%;
+    white-space: normal;
+}
+
 .page-enter-active,
 .page-leave-active {
     transition: opacity 0.75s ease;

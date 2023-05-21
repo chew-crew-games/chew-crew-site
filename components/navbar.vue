@@ -2,12 +2,7 @@
 import { ref } from "vue";
 import { NAVBAR_METADATA_PATH, NavbarMetadata } from "../utils/content";
 
-const navbarBurgerToggled = ref(false);
 const isTop = ref(true);
-
-function toggleNavbar(overrideValue?: boolean) {
-  navbarBurgerToggled.value = overrideValue ?? !navbarBurgerToggled.value;
-}
 
 const navbarMetadata = await queryContent<NavbarMetadata>(
   NAVBAR_METADATA_PATH
@@ -35,20 +30,30 @@ onUnmounted(() => {
   >
     <div class="container">
       <div class="navbar-brand">
-        <nuxt-link to="/" class="navbar-item" @click="toggleNavbar(false)">
+        <nuxt-link to="/" class="navbar-item">
           <img :src="navbarMetadata?.logo" />
         </nuxt-link>
-        <a class="navbar-burger burger" @click="toggleNavbar()">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
+        <div class="navbar-extras is-hidden-desktop">
+          <template v-for="link in navbarMetadata?.links" :key="link.text">
+            <nuxt-link
+              class="navbar-item has-text-weight-bold has-text-white"
+              :to="link.url"
+              :target="link.url.includes('http') ? '_blank' : ''"
+            >
+              <span v-if="link.boxicon" class="icon">
+                <i :class="`bx bxl-${link.boxicon}`" />
+              </span>
+              <span
+                v-if="link.url.includes('http') && !link.boxicon"
+                class="icon"
+              >
+                <i class="bx bx-link-external" />
+              </span>
+            </nuxt-link>
+          </template>
+        </div>
       </div>
-      <div
-        class="navbar-menu"
-        :class="{ 'is-active': navbarBurgerToggled }"
-        @click="toggleNavbar(false)"
-      >
+      <div class="navbar-menu">
         <div class="navbar-end">
           <template v-for="link in navbarMetadata?.links" :key="link.text">
             <nuxt-link
@@ -136,5 +141,9 @@ onUnmounted(() => {
       }
     }
   }
+}
+.navbar-extras {
+  display: flex;
+  margin-left: auto;
 }
 </style>
