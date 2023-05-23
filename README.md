@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4488e818-bc0a-4088-ae0a-d8eb2543b25d/deploy-status)](https://app.netlify.com/sites/chewcrew/deploys)
 
-A [server-side-rendered](https://nuxtjs.org/docs/concepts/server-side-rendering/) web app using:
+A [server-side-rendered](https://nuxt.com/docs/getting-started/introduction#server-side-rendering) web app using:
 
 - [Nuxt](https://nuxt.com)
 - [Bulma](https://bulma.io)
