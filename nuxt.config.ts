@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/content", "@nuxthq/studio", "@vueuse/nuxt"],
   nitro: {
-    preset: "netlify",
+    preset: "netlify-static",
   },
   typescript: {
     shim: false,
