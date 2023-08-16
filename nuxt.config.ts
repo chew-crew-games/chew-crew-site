@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
-  modules: ["@nuxt/content", "@vueuse/nuxt"],
+  modules: ["@nuxt/content", "@nuxthq/studio", "@vueuse/nuxt"],
   nitro: {
     preset: "netlify",
   },
